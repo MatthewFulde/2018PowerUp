@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team4.robot;
 
+import org.usfirst.frc.team4.robot.commands.Climb;
+
 import edu.wpi.first.wpilibj.Joystick;
 
 /**
@@ -15,7 +17,7 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class OI {
 	public OI() {
-		
+		ControllerConstants.operatorStart.whileHeld(new Climb());
 	}
 	public double leftX(Joystick axis) {
 		return axis.getRawAxis(ControllerConstants.AXIS_LEFT_X);

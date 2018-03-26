@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class IntakeMove extends Command {
+public class ElevatorMove extends Command {
 
-    public IntakeMove() {
-        requires(Robot.m_intake);
+    public ElevatorMove() {
+        requires(Robot.m_elevator);
     }
 
     // Called just before this Command runs the first time
@@ -20,13 +20,7 @@ public class IntakeMove extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(ControllerConstants.operatorLeftBumper.get()) {
-    		Robot.m_intake.setMotorSpeed(.75);
-    	}else if(ControllerConstants.operatorRightBumper.get()) {
-    		Robot.m_intake.setMotorSpeed(-.75);
-    	}else {
-    		Robot.m_intake.Motors.stopMotor();
-    	}
+    	Robot.m_elevator.setMotorSpeed(Robot.m_oi.leftY(ControllerConstants.operatorController));
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,7 +30,7 @@ public class IntakeMove extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.m_intake.Motors.stopMotor();
+    	Robot.m_elevator.setMotorSpeed(0);
     }
 
     // Called when another command which requires one or more of the same

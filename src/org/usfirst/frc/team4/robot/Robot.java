@@ -8,6 +8,8 @@
 package org.usfirst.frc.team4.robot;
 
 import org.usfirst.frc.team4.robot.subsystems.Chassis;
+import org.usfirst.frc.team4.robot.subsystems.Climber;
+import org.usfirst.frc.team4.robot.subsystems.Elevator;
 import org.usfirst.frc.team4.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -30,6 +32,8 @@ public class Robot extends TimedRobot {
 	public static OI m_oi;
 	public static Chassis m_chassis;
 	public static Intake m_intake;
+	public static Elevator m_elevator;
+	public static Climber m_climber;
 	
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -42,6 +46,8 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_chassis = new Chassis();
 		m_intake = new Intake();
+		m_elevator = new Elevator();
+		m_climber = new Climber();
 		m_oi = new OI();
 		ControllerConstants.init();
 //		m_chooser.addDefault("Default Auto", new ExampleCommand());

@@ -36,12 +36,10 @@ public class RobotMap {
 		public static final int ELEVATOR_POT = 0;
 		
 		// Intake
-		
 		public static final int INTAKE_MOTOR_RIGHT = 10;
 		public static final int INTAKE_MOTOR_LEFT= 1;
 		
 		//Climber
-		
 		public static final int CLIMBER_MOTOR_MASTER = 5; 
-public static final int CLIMBER_MOTOR_SLAVE = 6;
+		public static final int CLIMBER_MOTOR_SLAVE = 6;
 }
