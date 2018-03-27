@@ -5,6 +5,7 @@ import org.usfirst.frc.team4.robot.commands.Drive;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -19,6 +20,9 @@ public class Chassis extends Subsystem {
     
     DifferentialDrive driveController;
 
+    public Encoder leftEncoders;
+    public Encoder rightEncoders;
+    
     public Chassis() {
     	WPI_VictorSPX leftFrontMotor = new WPI_VictorSPX(RobotMap.CHASSIS_MOTOR_LEFT_FRONT);
     	WPI_VictorSPX leftMiddleMotor = new WPI_VictorSPX(RobotMap.CHASSIS_MOTOR_LEFT_MIDDLE);
@@ -31,6 +35,12 @@ public class Chassis extends Subsystem {
     	leftMotors = new SpeedControllerGroup(leftFrontMotor, leftMiddleMotor, leftRearMotor);
     	rightMotors = new SpeedControllerGroup(rightFrontMotor, rightMiddleMotor, rightRearMotor);
     	
+    	leftEncoders = new Encoder(RobotMap.CHASSIS_ENCODER_LEFT_BACKWARD, RobotMap.CHASSIS_ENCODER_LEFT_FORWARD);
+    	rightEncoders = new Encoder(RobotMap.CHASSIS_ENCODER_RIGHT_BACKWARD, RobotMap.CHASSIS_ENCODER_RIGHT_FORWARD);
+
+    	leftEncoders.setDistancePerPulse(0);
+    	rightEncoders.setDistancePerPulse(0);
+    	
     	driveController = new DifferentialDrive(leftMotors, rightMotors);
     }
     
@@ -40,6 +50,18 @@ public class Chassis extends Subsystem {
     public void arcadeDrive(double xSpeed, double zRotation) {
     	driveController.arcadeDrive(xSpeed, zRotation);
     }
+    public double getRightDistance() {
+    	return rightEncoders.getDistance();
+    }
+    public double getLeftDistance() {
+    	return leftEncoders.getDistance();
+    }
+    public double getDistance() {
+    	return (getLeftDistance() + getRightDistance())/2;
+    }
+    public void reset() {
+    	leftEncoders.reset();
+    	rightEncoders.reset();
+    }
     
 }
-

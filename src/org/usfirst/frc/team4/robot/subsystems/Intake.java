@@ -18,6 +18,7 @@ public class Intake extends Subsystem {
 
 	public SpeedControllerGroup Motors;
 	
+	
 	public Intake() {
 		WPI_TalonSRX leftMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR_LEFT);
 		WPI_TalonSRX rightMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR_RIGHT);
