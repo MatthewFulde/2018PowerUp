@@ -4,8 +4,10 @@ import org.usfirst.frc.team4.robot.RobotMap;
 import org.usfirst.frc.team4.robot.commands.Drive;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -22,6 +24,8 @@ public class Chassis extends Subsystem {
 
     public Encoder leftEncoders;
     public Encoder rightEncoders;
+    
+    AHRS gyro;
     
     public Chassis() {
     	WPI_VictorSPX leftFrontMotor = new WPI_VictorSPX(RobotMap.CHASSIS_MOTOR_LEFT_FRONT);
@@ -41,6 +45,8 @@ public class Chassis extends Subsystem {
     	leftEncoders.setDistancePerPulse(0);
     	rightEncoders.setDistancePerPulse(0);
     	
+    	gyro = new AHRS(SerialPort.Port.kMXP);
+    	
     	driveController = new DifferentialDrive(leftMotors, rightMotors);
     }
     
@@ -59,9 +65,13 @@ public class Chassis extends Subsystem {
     public double getDistance() {
     	return (getLeftDistance() + getRightDistance())/2;
     }
+    public double getAngle() {
+    	return gyro.getAngle();
+    }
     public void reset() {
     	leftEncoders.reset();
     	rightEncoders.reset();
+    	gyro.reset();
     }
     
 }

@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team4.robot;
 
+import org.usfirst.frc.team4.robot.commands.TuneDrive;
+import org.usfirst.frc.team4.robot.commands.TuneTurn;
+import org.usfirst.frc.team4.robot.commands.autocommands.DoNothing;
 import org.usfirst.frc.team4.robot.subsystems.Chassis;
 import org.usfirst.frc.team4.robot.subsystems.Climber;
 import org.usfirst.frc.team4.robot.subsystems.Elevator;
@@ -35,6 +38,8 @@ public class Robot extends TimedRobot {
 	public static Elevator m_elevator;
 	public static Climber m_climber;
 	
+	
+	
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -50,9 +55,15 @@ public class Robot extends TimedRobot {
 		m_climber = new Climber();
 		m_oi = new OI();
 		ControllerConstants.init();
+		
+		m_chooser.addDefault("Do Nothing", new DoNothing());
+		m_chooser.addObject("Tune Turn", new TuneTurn());
+		m_chooser.addObject("Tune Drive", new TuneDrive());
 //		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+		
+		
 	}
 
 	/**
