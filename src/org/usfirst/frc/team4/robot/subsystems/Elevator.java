@@ -3,8 +3,7 @@ package org.usfirst.frc.team4.robot.subsystems;
 import org.usfirst.frc.team4.robot.RobotMap;
 import org.usfirst.frc.team4.robot.commands.ElevatorMove;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -20,8 +19,8 @@ public class Elevator extends Subsystem {
 	public Potentiometer pot;
 	
 	public Elevator() {
-		WPI_VictorSPX leftMotor = new WPI_VictorSPX(RobotMap.ELEVATOR_MOTOR_LEFT);
-		WPI_VictorSPX rightMotor = new WPI_VictorSPX(RobotMap.ELEVATOR_MOTOR_RIGHT);
+		WPI_TalonSRX leftMotor = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR_LEFT);
+		WPI_TalonSRX rightMotor = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR_RIGHT);
 		
 		Motors = new SpeedControllerGroup(leftMotor, rightMotor);
 		

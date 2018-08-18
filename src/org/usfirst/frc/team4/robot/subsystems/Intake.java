@@ -3,7 +3,7 @@ package org.usfirst.frc.team4.robot.subsystems;
 import org.usfirst.frc.team4.robot.RobotMap;
 import org.usfirst.frc.team4.robot.commands.IntakeMove;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -20,8 +20,8 @@ public class Intake extends Subsystem {
 	
 	
 	public Intake() {
-		WPI_TalonSRX leftMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR_LEFT);
-		WPI_TalonSRX rightMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR_RIGHT);
+		WPI_VictorSPX leftMotor = new WPI_VictorSPX(RobotMap.INTAKE_MOTOR_LEFT);
+		WPI_VictorSPX rightMotor = new WPI_VictorSPX(RobotMap.INTAKE_MOTOR_RIGHT);
 	
 		
 		Motors = new SpeedControllerGroup(leftMotor, rightMotor);

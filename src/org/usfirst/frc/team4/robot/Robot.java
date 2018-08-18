@@ -53,8 +53,8 @@ public class Robot extends TimedRobot {
 		m_intake = new Intake();
 		m_elevator = new Elevator();
 		m_climber = new Climber();
-		m_oi = new OI();
 		ControllerConstants.init();
+		m_oi = new OI();
 		
 		m_chooser.addDefault("Do Nothing", new DoNothing());
 		m_chooser.addObject("Tune Turn", new TuneTurn());
