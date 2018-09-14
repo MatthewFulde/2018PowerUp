@@ -52,9 +52,14 @@ public class Robot extends TimedRobot {
 		m_chassis = new Chassis();
 		m_intake = new Intake();
 		m_elevator = new Elevator();
+<<<<<<< HEAD
 //		m_climber = new Climber();
 		m_oi = new OI();
+=======
+		m_climber = new Climber();
+>>>>>>> 3d559f62cd203acde33f8eeac33fa39809cfe8fd
 		ControllerConstants.init();
+		m_oi = new OI();
 		
 		m_chassis.log();
 		
