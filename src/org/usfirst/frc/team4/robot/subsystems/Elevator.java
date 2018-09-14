@@ -19,15 +19,10 @@ public class Elevator extends Subsystem {
 	public Potentiometer pot;
 	
 	public Elevator() {
-<<<<<<< HEAD
 //		WPI_TalonSRX leftMotor = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR_LEFT);
 //		WPI_TalonSRX rightMotor = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR_RIGHT);
 		WPI_VictorSPX leftMotor = new WPI_VictorSPX(RobotMap.ELEVATOR_MOTOR_LEFT);
 		WPI_VictorSPX rightMotor = new WPI_VictorSPX(RobotMap.ELEVATOR_MOTOR_RIGHT);
-=======
-		WPI_TalonSRX leftMotor = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR_LEFT);
-		WPI_TalonSRX rightMotor = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR_RIGHT);
->>>>>>> 3d559f62cd203acde33f8eeac33fa39809cfe8fd
 		
 		Motors = new SpeedControllerGroup(leftMotor, rightMotor);
 		
