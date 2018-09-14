@@ -6,12 +6,12 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team4.robot;
-
+	
 import org.usfirst.frc.team4.robot.commands.TuneDrive;
 import org.usfirst.frc.team4.robot.commands.TuneTurn;
 import org.usfirst.frc.team4.robot.commands.autocommands.DoNothing;
 import org.usfirst.frc.team4.robot.subsystems.Chassis;
-import org.usfirst.frc.team4.robot.subsystems.Climber;
+//import org.usfirst.frc.team4.robot.subsystems.Climber;
 import org.usfirst.frc.team4.robot.subsystems.Elevator;
 import org.usfirst.frc.team4.robot.subsystems.Intake;
 
@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
 	public static Chassis m_chassis;
 	public static Intake m_intake;
 	public static Elevator m_elevator;
-	public static Climber m_climber;
+//	public static Climber m_climber;
 	
 	
 	
@@ -52,9 +52,11 @@ public class Robot extends TimedRobot {
 		m_chassis = new Chassis();
 		m_intake = new Intake();
 		m_elevator = new Elevator();
-		m_climber = new Climber();
+//		m_climber = new Climber();
 		m_oi = new OI();
 		ControllerConstants.init();
+		
+		m_chassis.log();
 		
 		m_chooser.addDefault("Do Nothing", new DoNothing());
 		m_chooser.addObject("Tune Turn", new TuneTurn());
