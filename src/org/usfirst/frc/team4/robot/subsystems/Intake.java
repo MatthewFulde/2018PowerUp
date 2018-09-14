@@ -22,12 +22,9 @@ public class Intake extends Subsystem {
 	public Intake() {
 		WPI_VictorSPX leftMotor = new WPI_VictorSPX(RobotMap.INTAKE_MOTOR_LEFT);
 		WPI_VictorSPX rightMotor = new WPI_VictorSPX(RobotMap.INTAKE_MOTOR_RIGHT);
-<<<<<<< HEAD
 		
 		leftMotor.setInverted(true);
-=======
-	
->>>>>>> 3d559f62cd203acde33f8eeac33fa39809cfe8fd
+
 		
 		Motors = new SpeedControllerGroup(leftMotor, rightMotor);
 	}
